@@ -8,6 +8,7 @@ public class LocabikeApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(LocabikeApplication.class, args);
+		// https://loca-bike-api.herokuapp.com/swagger-ui/index.html
 	}
 
 }
