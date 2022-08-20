@@ -1,6 +1,6 @@
 package com.dev.locabike.model.locacao;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -15,6 +15,8 @@ import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -25,15 +27,18 @@ import lombok.Setter;
 public class Locacao {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	@Column (name="locacao_id")
+	private Integer locacaoId;
 	
+    @DateTimeFormat(pattern="dd-MM-yyyy")
+	@JsonFormat(pattern = "dd-MM-yyyy")
 	@Column (name="data_retirada")
-	@DateTimeFormat(pattern="dd-MM-yyyy")
-	private LocalDateTime dataRetirada;
+	private LocalDate dataRetirada;
 	
-	@Column (name="data_devolucao")
 	@DateTimeFormat(pattern="dd-MM-yyyy")
-	private LocalDateTime dataDevolucao;
+	@JsonFormat(pattern = "dd-MM-yyyy")
+	@Column (name="data_devolucao")
+	private LocalDate dataDevolucao;
 	
 	@JoinColumn(name="cliente_id")
 	private Integer clienteId;

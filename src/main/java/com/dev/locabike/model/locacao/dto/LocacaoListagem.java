@@ -5,7 +5,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class LocacaoListagem {
-	private Integer id;
+	private Integer locacaoId;
 	private java.math.BigDecimal subtotal;
 	private String cliente;
 	private java.sql.Date devolucao;

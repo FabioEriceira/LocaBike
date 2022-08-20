@@ -22,9 +22,9 @@ public class ClienteController {
 	@Autowired								
 	private ClienteRepository clienteRepository;
 	
-	@PostMapping 										 
-	public void gravar(@RequestBody Cliente cliente) {  
-		clienteRepository.save(cliente); 
+	@GetMapping									
+	public List<Cliente> listar(){
+		return clienteRepository.findAll();		 
 	}
 
 	@PutMapping								
@@ -32,20 +32,22 @@ public class ClienteController {
 		clienteRepository.save(cliente); 
 	}
 	
+	@PostMapping 										 
+	public void gravar(@RequestBody Cliente cliente) {  
+		clienteRepository.save(cliente); 
+	}
+	
+	
 	@DeleteMapping("/{id}")
 	public void deletar(@PathVariable ("id") Integer id) {
 		clienteRepository.deleteById(id);
 	}
 	
-	@GetMapping									
-	public List<Cliente> listar(){
-		return clienteRepository.findAll();		 
-	}
 	
 	@GetMapping("/{id}")								
 	public Cliente buscar(@PathVariable ("id") Integer id){
 		return clienteRepository.findById(id).orElse(null);	 
 	}
 	
-	
+
 }

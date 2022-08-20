@@ -18,7 +18,8 @@ public class LocacaoItem {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	@Column (name="item_id")
+	private Integer itemId;
 	
 	@Column (name="equipamento_id")
 	private Integer equipamentoId;

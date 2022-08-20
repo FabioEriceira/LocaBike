@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 public class LocacaoListagem2 {
 
-	private Integer id;
+	private Integer locacaoId;
 	private String tipoequip;
 	private String grupo;
 	private java.math.BigDecimal valor;

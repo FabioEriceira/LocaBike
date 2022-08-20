@@ -1,6 +1,6 @@
 package com.dev.locabike.service;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +42,7 @@ public class LocacaoService {
 		locacaoRepository.save(locacao);
 	}
 	
-	public Integer calcularDias(LocalDateTime devolucao, LocalDateTime retirada) {
+	public Integer calcularDias(LocalDate devolucao, LocalDate retirada) {
 		Integer qtDias = Math.toIntExact(ChronoUnit.DAYS.between(retirada, devolucao));
 		return qtDias;
 	}

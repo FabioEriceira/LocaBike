@@ -42,8 +42,8 @@ public class LocacaoController {
 	}
 	
 	@GetMapping("/{id}")								
-	public Locacao buscar(@PathVariable ("id") Integer id){
-		return locacaoRepository.findById(id).orElse(null);	 
+	public Locacao buscar(@PathVariable ("id") Integer locacaoId){
+		return locacaoRepository.findById(locacaoId).orElse(null);	 
 	}
 	
 	@GetMapping("/locacao")
@@ -52,7 +52,7 @@ public class LocacaoController {
 	}
 	
 	@GetMapping("/{id}/detalhes")								
-	public List<LocacaoListagem2> buscarLocalizacaoDetalhe(@PathVariable ("id") Integer id){
-		return customRepository.listarLocacaoDetalhes(id);	 
+	public List<LocacaoListagem2> buscarLocalizacaoDetalhe(@PathVariable ("id") Integer itemId){
+		return customRepository.listarLocacaoDetalhes(itemId);	 
 	}
 }

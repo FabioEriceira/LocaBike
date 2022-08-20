@@ -22,9 +22,9 @@ public class EquipamentoController {
 	@Autowired					
 	private EquipamentoRepository equipamentoRepository;
 	
-	@PostMapping 				 
-	public void gravar(@RequestBody Equipamento equipamento) {  
-		equipamentoRepository.save(equipamento); 
+	@GetMapping								
+	public List<Equipamento> listar(){
+		return equipamentoRepository.findAll();	 
 	}
 	
 	@PutMapping								
@@ -32,18 +32,19 @@ public class EquipamentoController {
 		equipamentoRepository.save(equipamento);
 	}
 	
+	@PostMapping 				 
+	public void gravar(@RequestBody Equipamento equipamento) {  
+		equipamentoRepository.save(equipamento); 
+	}
+				
+	@GetMapping("/{id}")								
+	public Equipamento buscar(@PathVariable ("id") Integer id){
+		return equipamentoRepository.findById(id).orElse(null);	 
+	}
+	
 	@DeleteMapping("/{id}")
 	public void deletar(@PathVariable ("id") Integer id) {
 		equipamentoRepository.deleteById(id);
 	}
 	
-	@GetMapping								
-	public List<Equipamento> listar(){
-		return equipamentoRepository.findAll();	 
-	}
-	
-	@GetMapping("/{id}")								
-	public Equipamento buscar(@PathVariable ("id") Integer id){
-		return equipamentoRepository.findById(id).orElse(null);	 
-	}
 }
