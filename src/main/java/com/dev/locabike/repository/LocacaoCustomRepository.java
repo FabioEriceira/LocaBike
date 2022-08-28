@@ -41,7 +41,7 @@ public class LocacaoCustomRepository {
 	public List<LocacaoListagem> listLocacaoComCliente(){
 		StringBuilder sql = new StringBuilder();
 
-	    sql.append("select l.id as id, l.data_retirada as retirada, l.data_devolucao as devolucao, l.valor_final as valor, c.nome as cliente"
+	    sql.append("select l.locacao_id as locacaoid, l.data_retirada as retirada, l.data_devolucao as devolucao, l.valor_final as valor, c.nome as cliente"
 	             + " from locacao l "
 	             + " inner join cliente c "
 	             + " on l.cliente_id  = c.id");

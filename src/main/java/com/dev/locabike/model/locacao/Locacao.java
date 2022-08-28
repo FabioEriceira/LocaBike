@@ -3,15 +3,7 @@ package com.dev.locabike.model.locacao;
 import java.time.LocalDate;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -30,13 +22,13 @@ public class Locacao {
 	@Column (name="locacao_id")
 	private Integer locacaoId;
 	
-    @DateTimeFormat(pattern="dd-MM-yyyy")
-	@JsonFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Column (name="data_retirada")
 	private LocalDate dataRetirada;
 	
-	@DateTimeFormat(pattern="dd-MM-yyyy")
-	@JsonFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Column (name="data_devolucao")
 	private LocalDate dataDevolucao;
 	

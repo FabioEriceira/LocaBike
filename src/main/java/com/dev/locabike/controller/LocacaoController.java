@@ -46,7 +46,7 @@ public class LocacaoController {
 		return locacaoRepository.findById(locacaoId).orElse(null);	 
 	}
 	
-	@GetMapping("/locacao")
+	@GetMapping("/locacao/locacaoComCliente")
 	public List<LocacaoListagem> listLocacaoComCliente() {
 		return customRepository.listLocacaoComCliente();
 	}
